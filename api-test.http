@@ -1,0 +1,44 @@
+
+### 1. 상품 생성 (POST - 201 Created)
+POST http://localhost:8080/api/v1/items
+Content-Type: application/json
+
+{
+  "name": "테스트 상품",
+  "price": 1000
+}
+
+### 2. 전체 상품 조회 (GET - 200 OK)
+GET http://localhost:8080/api/v1/items
+
+
+### 3. 상품 수정 (PUT - 200 OK)
+PUT http://localhost:8080/api/v1/items/1
+Content-Type: application/json
+
+{
+  "name": "수정된 상품",
+  "price": 2000
+}
+
+### 4. 상품 삭제 (DELETE - 200 OK)
+DELETE http://localhost:8080/api/v1/items/1
+
+
+### 5. 잘못된 상품 입력 (400 Bad Request)
+POST http://localhost:8080/api/v1/items
+Content-Type: application/json
+
+{
+  "name": "",
+  "price": -100
+}
+
+### 6. 존재하지 않는 상품 조회 (404 Not Found)
+GET http://localhost:8080/api/v1/items/9999
+
+### 7. 서버 오류 테스트 (500 Internal Server Error)
+GET http://localhost:8080/api/v1/items/test/server-error
+
+### 8. 서비스 이용 불가 테스트 (503 Service Unavailable)
+GET http://localhost:8080/api/v1/items/test/service-unavailable
